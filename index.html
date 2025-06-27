@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linux Commands Cheat Sheet</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f8f9fa;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      padding: 32px 24px 40px 24px;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+      margin-top: 1.5em;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 0.5em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5em 0;
+      background: #fafbfc;
+    }
+    th, td {
+      border: 1px solid #e1e4e8;
+      padding: 10px 12px;
+      text-align: left;
+    }
+    th {
+      background: #f0f1f3;
+      font-weight: 600;
+    }
+    code, pre {
+      background: #f4f4f4;
+      color: #c7254e;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 1em;
+    }
+    pre {
+      display: block;
+      padding: 12px;
+      margin: 1em 0;
+      overflow-x: auto;
+      background: #f4f4f4;
+      color: #333;
+    }
+    @media (max-width: 600px) {
+      .container { padding: 10px; }
+      table, th, td { font-size: 0.95em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Linux Commands Cheat Sheet</h1>
+    <p>A quick reference for essential Linux commands, explanations, and real-world examples.</p>
+
+    <h2>1. File &amp; Directory Navigation</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Example</th></tr>
+      <tr><td><code>pwd</code></td><td>Show current directory</td><td><code>pwd</code> → /home/meghana</td></tr>
+      <tr><td><code>ls</code></td><td>List files</td><td><code>ls -l</code>, <code>ls -a</code></td></tr>
+      <tr><td><code>cd</code></td><td>Change directory</td><td><code>cd /etc</code>, <code>cd ..</code>, <code>cd ~</code></td></tr>
+      <tr><td><code>tree</code></td><td>View folder structure (if installed)</td><td><code>tree /var/www</code></td></tr>
+    </table>
+
+    <h2>2. File &amp; Directory Management</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Example</th></tr>
+      <tr><td><code>touch</code></td><td>Create empty file</td><td><code>touch notes.txt</code></td></tr>
+      <tr><td><code>mkdir</code></td><td>Create directory</td><td><code>mkdir projects</code></td></tr>
+      <tr><td><code>cp</code></td><td>Copy files or folders</td><td><code>cp a.txt b.txt</code>, <code>cp -r dir1 dir2</code></td></tr>
+      <tr><td><code>mv</code></td><td>Move or rename</td><td><code>mv file1.txt folder/</code>, <code>mv old.txt new.txt</code></td></tr>
+      <tr><td><code>rm</code></td><td>Remove files</td><td><code>rm file.txt</code>, <code>rm -r folder/</code></td></tr>
+      <tr><td><code>find</code></td><td>Find files</td><td><code>find . -name "*.sh"</code></td></tr>
+    </table>
+
+    <h2>3. File Viewing &amp; Editing</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Example</th></tr>
+      <tr><td><code>cat</code></td><td>View file content</td><td><code>cat file.txt</code></td></tr>
+      <tr><td><code>less</code> / <code>more</code></td><td>Scroll through file</td><td><code>less bigfile.log</code></td></tr>
+      <tr><td><code>head</code> / <code>tail</code></td><td>View top/bottom lines</td><td><code>head -n 5 a.txt</code>, <code>tail -f log.txt</code></td></tr>
+      <tr><td><code>nano</code> / <code>vi</code></td><td>Text editors</td><td><code>nano hello.py</code>, <code>vi config.ini</code></td></tr>
+    </table>
+
+    <h2>4. File Permissions &amp; Ownership</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Example</th></tr>
+      <tr><td><code>chmod</code></td><td>Change permissions</td><td><code>chmod 755 script.sh</code>, <code>chmod o-w file.txt</code></td></tr>
+      <tr><td><code>chown</code></td><td>Change ownership</td><td><code>chown root file.txt</code>, <code>chown user:group file</code></td></tr>
+      <tr><td><code>ls -l</code></td><td>View permissions</td><td><code>ls -l</code></td></tr>
+      <tr><td><code>stat</code></td><td>View file info</td><td><code>stat file.txt</code></td></tr>
+    </table>
+
+    <h2>5. User &amp; Group Management</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Example</th></tr>
+      <tr><td><code>adduser</code></td><td>Add user (interactive)</td><td><code>adduser megha</code></td></tr>
+      <tr><td><code>useradd</code></td><td>Add user (manual)</td><td><code>useradd -m -s /bin/bash megha</code></td></tr>
+      <tr><td><code>passwd</code></td><td>Set/change password</td><td><code>passwd megha</code></td></tr>
+      <tr><td><code>deluser</code> / <code>userdel</code></td><td>Delete user</td><td><code>userdel -r megha</code></td></tr>
+      <tr><td><code>groupadd</code></td><td>Create group</td><td><code>groupadd devs</code></td></tr>
+      <tr><td><code>usermod</code></td><td>Modify user (e.g., add to group)</td><td><code>usermod -aG sudo megha</code></td></tr>
+      <tr><td><code>whoami</code></td><td>Show current user</td><td><code>whoami</code></td></tr>
+      <tr><td><code>id</code></td><td>Show UID, GID, groups</td><td><code>id megha</code></td></tr>
+    </table>
+
+    <h2>6. System Monitoring &amp; Performance</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Example</th></tr>
+      <tr><td><code>top</code></td><td>Real-time CPU/Memory usage</td><td><code>top</code></td></tr>
+      <tr><td><code>htop</code></td><td>Enhanced top (install first)</td><td><code>htop</code></td></tr>
+      <tr><td><code>df -h</code></td><td>Disk usage</td><td><code>df -h</code></td></tr>
+      <tr><td><code>free -m</code></td><td>RAM usage</td><td><code>free -m</code></td></tr>
+      <tr><td><code>uptime</code></td><td>System load averages</td><td><code>uptime</code></td></tr>
+      <tr><td><code>vmstat</code></td><td>Memory, CPU stats</td><td><code>vmstat 1</code></td></tr>
+    </table>
+
+    <h2>7. Package Management</h2>
+    <h3>For Debian/Ubuntu:</h3>
+    <pre><code>apt update              # Update package index
+apt install htop        # Install a package
+apt remove htop         # Remove a package
+apt search nginx        # Search package</code></pre>
+    <h3>For Alpine (Play With Docker):</h3>
+    <pre><code>apk update
+apk add htop shadow</code></pre>
+
+    <h2>8. Sudo &amp; Root Access</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Example</th></tr>
+      <tr><td><code>sudo</code></td><td>Run as root</td><td><code>sudo apt update</code></td></tr>
+      <tr><td><code>su</code></td><td>Switch to root</td><td><code>su -</code></td></tr>
+      <tr><td><code>sudo usermod -aG sudo megha</code></td><td>Give user sudo rights</td><td>—</td></tr>
+    </table>
+
+    <h2>9. Audit &amp; Logs</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Example</th></tr>
+      <tr><td><code>journalctl</code></td><td>System logs (systemd)</td><td><code>journalctl -xe</code></td></tr>
+      <tr><td><code>tail -f</code></td><td>Monitor log file live</td><td><code>tail -f /var/log/syslog</code></td></tr>
+      <tr><td><code>ausearch -m execve</code></td><td>Audit executed commands</td><td><code>ausearch -m execve --start today</code></td></tr>
+    </table>
+
+    <h2>10. Networking</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Example</th></tr>
+      <tr><td><code>ping</code></td><td>Check network</td><td><code>ping google.com</code></td></tr>
+      <tr><td><code>curl</code></td><td>Fetch from URL</td><td><code>curl https://example.com</code></td></tr>
+      <tr><td><code>ifconfig</code> / <code>ip a</code></td><td>View IP address</td><td><code>ip a</code></td></tr>
+      <tr><td><code>netstat -tuln</code></td><td>View listening ports</td><td><code>netstat -tuln</code></td></tr>
+    </table>
+
+    <h2>Bonus Commands</h2>
+    <table>
+      <tr><th>Task</th><th>Command</th></tr>
+      <tr><td>Clear terminal</td><td><code>clear</code></td></tr>
+      <tr><td>View history</td><td><code>history</code></td></tr>
+      <tr><td>Run last command</td><td><code>!!</code></td></tr>
+      <tr><td>Shutdown</td><td><code>shutdown now</code></td></tr>
+      <tr><td>Reboot</td><td><code>reboot</code></td></tr>
+    </table>
+
+    <h2 style="margin-top:2.5em;">Advanced Linux Server Administration Manual (Command Cheatsheet)</h2>
+    <p>This expanded reference covers advanced system administration topics for experienced Linux server admins.</p>
+
+    <h3>1. File &amp; Directory Operations</h3>
+    <table>
+      <tr><th>Task</th><th>Command</th><th>Example</th></tr>
+      <tr><td>Show current directory</td><td><code>pwd</code></td><td><code>pwd</code></td></tr>
+      <tr><td>List files (long + hidden)</td><td><code>ls -lah</code></td><td><code>ls -lah /var/log</code></td></tr>
+      <tr><td>Change directory</td><td><code>cd</code></td><td><code>cd /etc/nginx</code></td></tr>
+      <tr><td>Make directory</td><td><code>mkdir -p</code></td><td><code>mkdir -p /opt/app/logs</code></td></tr>
+      <tr><td>Copy files/directories</td><td><code>cp</code>, <code>cp -r</code></td><td><code>cp -r src/ dst/</code></td></tr>
+      <tr><td>Move/rename</td><td><code>mv</code></td><td><code>mv file.log oldfile.log</code></td></tr>
+      <tr><td>Remove files/folders</td><td><code>rm</code>, <code>rm -rf</code></td><td><code>rm -rf /tmp/testdir</code></td></tr>
+      <tr><td>Find files</td><td><code>find</code></td><td><code>find / -name "*.conf"</code></td></tr>
+      <tr><td>Calculate file size</td><td><code>du -sh</code></td><td><code>du -sh logs/</code></td></tr>
+      <tr><td>Show file info</td><td><code>stat</code></td><td><code>stat /etc/passwd</code></td></tr>
+      <tr><td>Display large files</td><td><code>find . -type f -exec du -Sh {} + | sort -rh | head -n 10</code></td><td>—</td></tr>
+    </table>
+
+    <h3>2. File Viewing &amp; Text Processing</h3>
+    <table>
+      <tr><th>Task</th><th>Command</th><th>Example</th></tr>
+      <tr><td>View file content</td><td><code>cat</code>, <code>less</code>, <code>more</code></td><td><code>less /var/log/syslog</code></td></tr>
+      <tr><td>Head/tail of file</td><td><code>head</code>, <code>tail</code></td><td><code>tail -n 100 logfile.log</code></td></tr>
+      <tr><td>Monitor file live</td><td><code>tail -f</code></td><td><code>tail -f /var/log/nginx/access.log</code></td></tr>
+      <tr><td>Search inside files</td><td><code>grep</code>, <code>egrep</code></td><td><code>grep "ERROR" logfile.log</code></td></tr>
+      <tr><td>Replace text</td><td><code>sed</code></td><td><code>sed -i 's/http/https/g' conf.txt</code></td></tr>
+      <tr><td>Field extraction</td><td><code>awk</code>, <code>cut</code></td><td><code>awk '{print $1}'</code></td></tr>
+      <tr><td>Count lines/words</td><td><code>wc</code></td><td><code>wc -l /etc/passwd</code></td></tr>
+    </table>
+
+    <h3>3. Permissions, Ownership &amp; ACL</h3>
+    <table>
+      <tr><th>Task</th><th>Command</th><th>Example</th></tr>
+      <tr><td>Show permissions</td><td><code>ls -l</code></td><td><code>ls -l /etc/passwd</code></td></tr>
+      <tr><td>Change permissions</td><td><code>chmod</code></td><td><code>chmod 755 script.sh</code></td></tr>
+      <tr><td>Change owner/group</td><td><code>chown</code></td><td><code>chown root:nginx /etc/nginx/nginx.conf</code></td></tr>
+      <tr><td>View ACLs</td><td><code>getfacl</code></td><td><code>getfacl file.txt</code></td></tr>
+      <tr><td>Set ACLs</td><td><code>setfacl</code></td><td><code>setfacl -m u:meghna:r file.txt</code></td></tr>
+    </table>
+
+    <h3>4. User &amp; Group Management</h3>
+    <table>
+      <tr><th>Task</th><th>Command</th><th>Example</th></tr>
+      <tr><td>Add user</td><td><code>useradd -m</code></td><td><code>useradd -m -s /bin/bash megha</code></td></tr>
+      <tr><td>Set password</td><td><code>passwd</code></td><td><code>passwd megha</code></td></tr>
+      <tr><td>Add group</td><td><code>groupadd</code></td><td><code>groupadd admin</code></td></tr>
+      <tr><td>Add user to group</td><td><code>usermod -aG</code></td><td><code>usermod -aG sudo megha</code></td></tr>
+      <tr><td>View user/group info</td><td><code>id</code>, <code>groups</code></td><td><code>id megha</code>, <code>groups</code></td></tr>
+      <tr><td>Delete user</td><td><code>userdel -r</code></td><td><code>userdel -r tempuser</code></td></tr>
+    </table>
+
+    <h3>5. System Performance &amp; Monitoring</h3>
+    <table>
+      <tr><th>Task</th><th>Command</th><th>Example</th></tr>
+      <tr><td>CPU usage</td><td><code>top</code>, <code>htop</code></td><td><code>top</code></td></tr>
+      <tr><td>Memory usage</td><td><code>free -h</code></td><td><code>free -h</code></td></tr>
+      <tr><td>Disk usage</td><td><code>df -h</code></td><td><code>df -h /home</code></td></tr>
+      <tr><td>Disk IO</td><td><code>iostat</code></td><td><code>iostat -xm 5</code></td></tr>
+      <tr><td>Load averages</td><td><code>uptime</code></td><td><code>uptime</code></td></tr>
+      <tr><td>System boot time</td><td><code>who -b</code></td><td><code>who -b</code></td></tr>
+      <tr><td>Logged in users</td><td><code>who</code>, <code>w</code></td><td><code>w</code></td></tr>
+      <tr><td>Process tree</td><td><code>pstree</code></td><td><code>pstree -p</code></td></tr>
+    </table>
+
+    <h3>6. Disk Management &amp; Mounting</h3>
+    <table>
+      <tr><th>Task</th><th>Command</th><th>Example</th></tr>
+      <tr><td>List block devices</td><td><code>lsblk</code></td><td><code>lsblk</code></td></tr>
+      <tr><td>Mount disk</td><td><code>mount</code></td><td><code>mount /dev/sdb1 /mnt/data</code></td></tr>
+      <tr><td>Unmount disk</td><td><code>umount</code></td><td><code>umount /mnt/data</code></td></tr>
+      <tr><td>Show mount points</td><td><code>mount</code>, <code>findmnt</code></td><td><code>findmnt</code></td></tr>
+      <tr><td>Format disk</td><td><code>mkfs.ext4</code></td><td><code>mkfs.ext4 /dev/sdb1</code></td></tr>
+      <tr><td>View partition table</td><td><code>fdisk -l</code>, <code>blkid</code></td><td><code>fdisk -l</code></td></tr>
+      <tr><td>Resize partition</td><td><code>resize2fs</code></td><td><code>resize2fs /dev/sdb1</code></td></tr>
+    </table>
+
+    <h3>7. Package Management</h3>
+    <h4>Debian/Ubuntu:</h4>
+    <pre><code>apt update
+apt install package-name
+apt remove package-name
+dpkg -l | grep nginx</code></pre>
+    <h4>RHEL/CentOS:</h4>
+    <pre><code>yum install httpd
+dnf remove firewalld
+rpm -qa | grep mysql</code></pre>
+    <h4>Alpine:</h4>
+    <pre><code>apk update
+apk add bash htop curl</code></pre>
+
+    <h3>8. Logs &amp; Auditing</h3>
+    <table>
+      <tr><th>Task</th><th>Command</th><th>Example</th></tr>
+      <tr><td>View logs</td><td><code>journalctl</code></td><td><code>journalctl -u nginx</code></td></tr>
+      <tr><td>View boot logs</td><td><code>dmesg</code></td><td><code>dmesg | grep error</code></td></tr>
+      <tr><td>Monitor log file</td><td><code>tail -f</code></td><td><code>tail -f /var/log/messages</code></td></tr>
+      <tr><td>Audit logins</td><td><code>last</code>, <code>lastb</code></td><td><code>last -a</code></td></tr>
+      <tr><td>Audit commands</td><td><code>ausearch -m execve --start today</code></td><td>—</td></tr>
+      <tr><td>Audit sudo use</td><td><code>grep 'sudo:' /var/log/auth.log</code></td><td>—</td></tr>
+    </table>
+
+    <h3>9. Networking</h3>
+    <table>
+      <tr><th>Task</th><th>Command</th><th>Example</th></tr>
+      <tr><td>Show IP</td><td><code>ip a</code>, <code>hostname -I</code></td><td><code>ip a</code></td></tr>
+      <tr><td>Ping host</td><td><code>ping</code></td><td><code>ping google.com</code></td></tr>
+      <tr><td>Check open ports</td><td><code>ss -tuln</code>, <code>netstat</code></td><td><code>ss -tuln</code></td></tr>
+      <tr><td>DNS resolution</td><td><code>dig</code>, <code>nslookup</code></td><td><code>dig openai.com</code></td></tr>
+      <tr><td>Interface stats</td><td><code>ifconfig</code>, <code>ip -s</code></td><td><code>ip -s link</code></td></tr>
+      <tr><td>Trace route</td><td><code>traceroute</code>, <code>mtr</code></td><td><code>traceroute google.com</code></td></tr>
+    </table>
+
+    <h3>10. Sudo &amp; Privileges</h3>
+    <table>
+      <tr><th>Task</th><th>Command</th><th>Example</th></tr>
+      <tr><td>Add sudo access</td><td><code>usermod -aG sudo user</code></td><td><code>usermod -aG sudo megha</code></td></tr>
+      <tr><td>Run as root</td><td><code>sudo</code>, <code>su -</code></td><td><code>sudo apt update</code></td></tr>
+      <tr><td>Switch to user</td><td><code>su - username</code></td><td><code>su - megha</code></td></tr>
+    </table>
+
+    <h3>11. Services &amp; Process Management</h3>
+    <table>
+      <tr><th>Task</th><th>Command</th><th>Example</th></tr>
+      <tr><td>Check service</td><td><code>systemctl status</code></td><td><code>systemctl status ssh</code></td></tr>
+      <tr><td>Start/stop service</td><td><code>systemctl start/stop</code></td><td><code>systemctl restart nginx</code></td></tr>
+      <tr><td>Enable at boot</td><td><code>systemctl enable</code></td><td><code>systemctl enable apache2</code></td></tr>
+      <tr><td>Kill process</td><td><code>kill</code>, <code>pkill</code></td><td><code>kill -9 PID</code>, <code>pkill -f nginx</code></td></tr>
+    </table>
+
+    <h3>12. Backup &amp; Archiving</h3>
+    <table>
+      <tr><th>Task</th><th>Command</th><th>Example</th></tr>
+      <tr><td>Create tar archive</td><td><code>tar -czf</code></td><td><code>tar -czf backup.tar.gz /var/www</code></td></tr>
+      <tr><td>Extract archive</td><td><code>tar -xzf</code></td><td><code>tar -xzf backup.tar.gz -C /opt</code></td></tr>
+      <tr><td>Sync dirs</td><td><code>rsync -av</code></td><td><code>rsync -av /data/ /backup/data/</code></td></tr>
+      <tr><td>Create disk image</td><td><code>dd if=/dev/sda of=/mnt/backup.img</code></td><td>—</td></tr>
+    </table>
+
+    <h3>13. Crontab &amp; Scheduling</h3>
+    <table>
+      <tr><th>Task</th><th>Command</th><th>Example</th></tr>
+      <tr><td>Edit crontab</td><td><code>crontab -e</code></td><td><code>crontab -e</code></td></tr>
+      <tr><td>List cron jobs</td><td><code>crontab -l</code></td><td><code>crontab -l</code></td></tr>
+      <tr><td>View system cron</td><td><code>ls /etc/cron*</code></td><td>—</td></tr>
+      <tr><td>Cron example</td><td><code>0 3 * * * /usr/bin/backup.sh</code></td><td>Run backup daily at 3 AM</td></tr>
+    </table>
+
+<img src="./linu.png">
+  </div>
+</body>
+</html>
+
+
